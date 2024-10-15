@@ -1,0 +1,48 @@
+html, body {
+    height: 90%;
+    margin: 0;
+}
+
+#blockly {
+    width: 66%;
+    float: left;
+}
+
+#code {
+    margin: 0;
+    float: right;
+    width: 33%;
+    height: 100%;
+    background-color: #F0F0F0;
+    color: #5F5F5F;
+    overflow: auto;
+    display: block;
+}
+
+#wrap {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.treeLabelBlock {
+    float: left;
+    margin: 0 5px 0 5px;
+    width: 10px;
+    height: 100%; 
+}
+
+.navbar {
+    max-height: 50px;
+}
+
+@media (max-width: 768px) {
+    #blockly {
+        width: 100%; /* En pantallas pequeñas, que ocupe todo el ancho */
+    }
+
+    #code {
+        width: 100%;
+        display: none; /* Ocultar el área de código en pantallas pequeñas */
+    }
+}
