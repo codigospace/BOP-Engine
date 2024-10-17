@@ -169,7 +169,8 @@
 
             RoboBlocks.load({
                 zoom: 0.5,
-                language: document.getElementById('localeSelector').value
+                language: document.getElementById('localeSelector').value,
+                colorProfile: document.getElementById('colorProfileSelector').value
             });
 
             updateCode(window.programmingLanguage);
@@ -205,66 +206,59 @@
         }
 
         function changeColor() {
-            // Obtener el perfil de colores del combobox
-            var newProfile = document.getElementById('colorProfileSelector').value;
+            RoboBlocks.load({
+                zoom: 1,
+                colorProfile: document.getElementById('colorProfileSelector').value,
+                language: document.getElementById('localeSelector').value,
+            });
 
-            if (newProfile) {
-                RoboBlocks.load({
-                    zoom: 1,
-                    colorProfile: newProfile,
-                    language: document.getElementById('localeSelector').value,
-                });
+            // Colores para cada tipo de bloque
+            var colors = [
+                "",
+                RoboBlocks.LANG_COLOUR_PROCEDURES,
+                RoboBlocks.LANG_COLOUR_CONTROL,
+                RoboBlocks.LANG_COLOUR_LOGIC,
+                RoboBlocks.LANG_COLOUR_MATH,
+                RoboBlocks.LANG_COLOUR_VARIABLES,
+                RoboBlocks.LANG_COLOUR_TEXT,
+                RoboBlocks.LANG_COLOUR_COMMUNICATION,
+                RoboBlocks.LANG_COLOUR_MODULAR,
+                RoboBlocks.LANG_COLOUR_BETTO,
+                RoboBlocks.LANG_COLOUR_BQ,
+                RoboBlocks.LANG_COLOUR_ADVANCED,
+                RoboBlocks.LANG_COLOUR_LCD,
+                RoboBlocks.LANG_COLOUR_SERVO,
+                RoboBlocks.LANG_COLOUR_RASPBERRY,
+                RoboBlocks.BACKGROUND_COLOUR_TOOLBOX,
+                RoboBlocks.BACKGROUND_COLOUR_CANVAS,
+                RoboBlocks.BACKGROUND_COLOUR_CODE,
+                RoboBlocks.TITLE_COLOR,
+                RoboBlocks.COMMENT_COLOR,
+                RoboBlocks.STRING_COLOR,
+                RoboBlocks.LITERAL_COLOR,
+                RoboBlocks.KEYWORD_COLOR,
+                RoboBlocks.NUMBER_COLOR
+            ];
 
-                // Colores para cada tipo de bloque
-                var colors = [
-                    "",
-                    RoboBlocks.LANG_COLOUR_PROCEDURES,
-                    RoboBlocks.LANG_COLOUR_CONTROL,
-                    RoboBlocks.LANG_COLOUR_LOGIC,
-                    RoboBlocks.LANG_COLOUR_MATH,
-                    RoboBlocks.LANG_COLOUR_VARIABLES,
-                    RoboBlocks.LANG_COLOUR_TEXT,
-                    RoboBlocks.LANG_COLOUR_COMMUNICATION,
-                    RoboBlocks.LANG_COLOUR_MODULAR,
-                    RoboBlocks.LANG_COLOUR_BETTO,
-                    RoboBlocks.LANG_COLOUR_BQ,
-                    RoboBlocks.LANG_COLOUR_ADVANCED,
-                    RoboBlocks.LANG_COLOUR_LCD,
-                    RoboBlocks.LANG_COLOUR_SERVO,
-                    RoboBlocks.LANG_COLOUR_RASPBERRY,
-                    RoboBlocks.BACKGROUND_COLOUR_TOOLBOX,
-                    RoboBlocks.BACKGROUND_COLOUR_CANVAS,
-                    RoboBlocks.BACKGROUND_COLOUR_CODE,
-                    RoboBlocks.TITLE_COLOR,
-                    RoboBlocks.COMMENT_COLOR,
-                    RoboBlocks.STRING_COLOR,
-                    RoboBlocks.LITERAL_COLOR,
-                    RoboBlocks.KEYWORD_COLOR,
-                    RoboBlocks.NUMBER_COLOR
-                ];
+            // Actualizar el color de los textos en los bloques
+            var workspace = Blockly.getMainWorkspace();
+            workspace.getAllBlocks().forEach((block) => {
+                var blockType = block.type; // Obtener el tipo de bloque
+                var color = colors[blockType] || ""; // Obtener el color según el tipo de bloque
 
-                // Actualizar el color de los textos en los bloques
-                var workspace = Blockly.getMainWorkspace();
-                workspace.getAllBlocks().forEach((block) => {
-                    var blockType = block.type; // Obtener el tipo de bloque
-                    var color = colors[blockType] || ""; // Obtener el color según el tipo de bloque
-
-                    if (color) {
-                        block.setColour(color); // Establecer el color del bloque
-                        block.getSvgRoot().setAttribute('style', `color: ${color};`); // Actualizar el color del texto del bloque
-                    }
-                });
+                if (color) {
+                    block.setColour(color); // Establecer el color del bloque
+                    block.getSvgRoot().setAttribute('style', `color: ${color};`); // Actualizar el color del texto del bloque
+                }
+            });
 
 
-                $('.blocklyTreeRow').each(function (i, e) {
-                    $(e).find('.treeLabelBlock').remove();
-                    $(e).prepend('<span class="treeLabelBlock" style="background-color:' + colors[i] + '"></span>');
-                });
+            $('.blocklyTreeRow').each(function (i, e) {
+                $(e).find('.treeLabelBlock').remove();
+                $(e).prepend('<span class="treeLabelBlock" style="background-color:' + colors[i] + '"></span>');
+            });
 
-                changeColorWorkSpace(RoboBlocks);
-            } else {
-                alert("Perfil de colores no válido. Intente de nuevo.");
-            }
+            changeColorWorkSpace(RoboBlocks);
         }
 
         function changeLocale() {

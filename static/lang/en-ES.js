@@ -420,7 +420,7 @@ export function language(){
         LANG_MODULAR_DEFINE: 'Declarar el modulo',
         LANG_MODULAR_TYPE: 'de tipo',
         LANG_MODULAR_PORT: 'en el puerto',
-        LANG_MODULAR_READ: 'Leer el estado de ',
+        LANG_MODULAR_READ: 'Leer de ',
         LANG_MODULAR_WRITE: 'Escribir en el actuador ',
         LANG_MODULAR_STATE: 'el estado',
         LANG_MODULAR_STEPPER_MOTOR: 'Escribir en el motor de pasos',

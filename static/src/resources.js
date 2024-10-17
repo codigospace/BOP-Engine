@@ -8,6 +8,7 @@ const resources = {
         ottoEmoji: `${pathToFolderImage}/otto_emoji.png`,
         declararModular: `${pathToFolderImage}/DECLARARMODULAR.png`,
         leerModular: `${pathToFolderImage}/LEERMODULAR.png`,
+        leerModularPanel: `${pathToFolderImage}/InputOutput.png`,
         escribirModular: `${pathToFolderImage}/ESCRIBIRMODULAR.png`,
         sensorNoise: `${pathToFolderImage}/sensor_noise.png`,
         sensorUltrasound: `${pathToFolderImage}/sensor_ultrasound.png`,

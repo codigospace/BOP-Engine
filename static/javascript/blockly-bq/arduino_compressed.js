@@ -115,7 +115,7 @@ Blockly.Arduino.finish = function (a) {
             a + "\n\n/***   Function definition   ***/\n" + b[1];
     } else if (window.programmingLanguage === 'python') {
         a = (d.join("\n") + "\n\n# Global variables\n" +
-            e.join("") + "\ndef setup():\n" + ((c[0].length >= 2 || c.length > 1) ? c.join("  ") : "  pass" )).replace(/\n\n+/g, "\n\n").replace(/\n*$/, "\n\n") +
+            e.join("") + "\ndef setup():\n  " + ((c[0].length >= 2 || c.length > 1) ? c.join("  ") : "  pass" )).replace(/\n\n+/g, "\n\n").replace(/\n*$/, "\n\n") +
             a + "\n# Function definition\n" + b[1] + "\n# Main\nsetup()\n\n" +
             "while (True):\n  loop()\n\n";
     } else if (window.programmingLanguage === 'js') {

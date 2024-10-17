@@ -113,6 +113,10 @@ var load = function (options) {
     RoboBlocks.LANG_COLOUR_TEXT = profile.TEXT;
     RoboBlocks.LANG_COLOUR_COMMUNICATION = profile.COMMUNICATION;
     RoboBlocks.LANG_COLOUR_MODULAR = profile.MODULAR;
+    RoboBlocks.LANG_COLOUR_MODULAR_ADI = profile.MODULAR_ADI;
+    RoboBlocks.LANG_COLOUR_MODULAR_ADI_2 = profile.MODULAR_ADI_2;
+    RoboBlocks.LANG_COLOUR_MODULAR_ADI_3 = profile.MODULAR_ADI_3;
+    RoboBlocks.LANG_COLOUR_MODULAR_WRITE = profile.MODULAR_WRITE;
     RoboBlocks.LANG_COLOUR_BETTO = profile.BETTO;
     RoboBlocks.LANG_COLOUR_CARLITTO = profile.CARLITTO;
     RoboBlocks.LANG_COLOUR_ADVANCED = profile.ADVANCED;
@@ -645,9 +649,10 @@ var load = function (options) {
          * inout_digital_read initialization
          */
         init: function () {
-            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR);
-            this.appendDummyInput().appendField(new Blockly.FieldImage(resources.images.leerModular, resources.dimensions.leerModular.width * options.zoom, resources.dimensions.leerModular.height * options.zoom))
+            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR_ADI_3);
+            this.appendDummyInput().appendField(new Blockly.FieldImage(resources.images.leerModular, resources.dimensions.leerModular.width * options.zoom, resources.dimensions.leerModular.height * options.zoom))    
                 .appendField(RoboBlocks.locales.getKey('LANG_MODULAR_READ'))
+                .appendField(new Blockly.FieldImage(resources.images.leerModularPanel, resources.dimensions.leerModular.width * options.zoom, resources.dimensions.leerModular.height * options.zoom))
                 .appendField(new Blockly.FieldVariable(' '), 'VAR');
             this.setOutput(true);
             this.setOutput(true, Boolean);
@@ -723,7 +728,7 @@ var load = function (options) {
          * inout_digital_write initialization
          */
         init: function () {
-            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR);
+            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR_WRITE);
             this.appendDummyInput().appendField(new Blockly.FieldImage(resources.images.escribirModular, resources.dimensions.escribirModular.width * options.zoom * options.zoom, resources.dimensions.escribirModular.height * options.zoom));
             this.appendDummyInput('DUMMY').appendField(RoboBlocks.locales.getKey('LANG_MODULAR_WRITE'))
                 .appendField(new Blockly.FieldVariable(' '), 'VAR');
@@ -805,7 +810,7 @@ var load = function (options) {
          * inout_digital_write initialization
          */
         init: function () {
-            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR);
+            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR_WRITE);
             this.appendDummyInput().appendField(new Blockly.FieldImage(resources.images.escribirModular, resources.dimensions.escribirModular.width * options.zoom * options.zoom, resources.dimensions.escribirModular.height * options.zoom));
             this.appendDummyInput('DUMMY').appendField(RoboBlocks.locales.getKey('LANG_MODULAR_WRITE'))
                 //.appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
@@ -888,7 +893,7 @@ var load = function (options) {
          * inout_digital_write initialization
          */
         init: function () {
-            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR);
+            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR_ADI_2);
             this.appendDummyInput().appendField(new Blockly.FieldImage(resources.images.escribirModular, resources.dimensions.escribirModular.width * options.zoom * options.zoom, resources.dimensions.escribirModular.height * options.zoom));
             this.appendDummyInput('DUMMY').appendField(RoboBlocks.locales.getKey('LANG_MODULAR_STEPPER_MOTOR'))
                 //.appendField(new Blockly.FieldDropdown(this.getVariables()), 'VAR');
@@ -970,7 +975,7 @@ var load = function (options) {
          * inout_digital_write initialization
          */
         init: function () {
-            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR);
+            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR_ADI_2);
             this.appendDummyInput().appendField(new Blockly.FieldImage(resources.images.escribirModular, resources.dimensions.escribirModular.width * options.zoom * options.zoom, resources.dimensions.escribirModular.height * options.zoom));
             this.appendDummyInput('DUMMY').appendField(RoboBlocks.locales.getKey('LANG_MODULAR_WRITE_SEVEN_DISPLAY'))
                 .appendField(new Blockly.FieldVariable(' '), 'VAR');
@@ -1052,7 +1057,7 @@ var load = function (options) {
          * inout_digital_write initialization
          */
         init: function () {
-            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR);
+            this.setColour(RoboBlocks.LANG_COLOUR_BETTO);
             this.appendDummyInput().appendField(new Blockly.FieldImage(resources.images.escribirModular, resources.dimensions.escribirModular.width * options.zoom * options.zoom, resources.dimensions.escribirModular.height * options.zoom));
             this.appendDummyInput('DUMMY').appendField(RoboBlocks.locales.getKey('LANG_MODULAR_SERVO_MOTOR'))
                 .appendField(new Blockly.FieldVariable(' '), 'VAR');
@@ -1136,7 +1141,7 @@ var load = function (options) {
          * inout_digital_write initialization
          */
         init: function () {
-            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR);
+            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR_ADI);
             this.appendDummyInput().appendField(new Blockly.FieldImage(resources.images.escribirModular, resources.dimensions.escribirModular.width * options.zoom * options.zoom, resources.dimensions.escribirModular.height * options.zoom));
             this.appendDummyInput('DUMMY').appendField(RoboBlocks.locales.getKey('LANG_MODULAR_DC_MOTOR'))
                 .appendField(new Blockly.FieldVariable(' '), 'VAR');
@@ -1221,7 +1226,7 @@ var load = function (options) {
          * inout_digital_write initialization
          */
         init: function () {
-            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR);
+            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR_ADI_3);
             this.appendDummyInput().appendField(new Blockly.FieldImage(resources.images.escribirModular, resources.dimensions.escribirModular.width * options.zoom, resources.dimensions.escribirModular.height * options.zoom));
             this.appendDummyInput('DUMMY').appendField(RoboBlocks.locales.getKey('LANG_MODULAR_LCD'))
                 .appendField(new Blockly.FieldVariable(' '), 'VAR');
@@ -1298,7 +1303,7 @@ var load = function (options) {
          * inout_highlow initialization
          */
         init: function () {
-            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR);
+            this.setColour(RoboBlocks.LANG_COLOUR_MODULAR_ADI_3);
             this.appendDummyInput().appendField(new Blockly.FieldImage(resources.images.escribirModular, resources.dimensions.escribirModular.width * options.zoom, resources.dimensions.escribirModular.height * options.zoom))
                 .appendField(new Blockly.FieldDropdown([
                     [RoboBlocks.locales.getKey('LANG_MODULAR_FORWARD'), 'HIGH'],
@@ -4395,44 +4400,6 @@ var load = function (options) {
             this.setInputsInline(true);
             this.setTooltip(RoboBlocks.locales.getKey('LANG_MATH_MODULO_TOOLTIP'));
         }
-    };
-
-    // Source: src/blocks/math_number/math_number.js
-    /* global Blockly, RoboBlocks */
-    /* jshint sub:true */
-
-    /**
-     * math_number code generation
-     * @return {String} Code generated with block parameters
-     */
-
-    Blockly.Arduino.math_number = function () {
-        // Numeric value.
-        var code = window.parseFloat(this.getFieldValue('NUM'));
-        // -4.abs() returns -4 in Dart due to strange order of operation choices.
-        // -4 is actually an operator and a number.  Reflect this in the order.
-        var order = code < 0 ? Blockly.Arduino.ORDER_UNARY_PREFIX : Blockly.Arduino.ORDER_ATOMIC;
-        return [code, order];
-    };
-
-    Blockly.Blocks.math_number = {
-        // Numeric value.
-        category: RoboBlocks.locales.getKey('LANG_CATEGORY_MATH'), // Variables are handled specially.
-        helpUrl: RoboBlocks.URL_MATH,
-        init: function () {
-            this.setColour(RoboBlocks.LANG_COLOUR_MATH);
-            this.appendDummyInput()
-                .appendField(new Blockly.FieldTextInput('0', Blockly.Blocks.math_number.validator), 'NUM');
-            this.setOutput(true, Number);
-            this.setTooltip(RoboBlocks.locales.getKey('LANG_MATH_NUMBER_TOOLTIP'));
-        }
-    };
-
-    Blockly.Blocks.math_number.validator = function (text) {
-        // Ensure that only a number may be entered.
-        // TODO: Handle cases like 'o', 'ten', '1,234', '3,14', etc.
-        var n = window.parseFloat(text || 0);
-        return window.isNaN(n) ? null : String(n);
     };
 
     // Source: src/blocks/math_random/math_random.js
